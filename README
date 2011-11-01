@@ -1,0 +1,8 @@
+Just a proof of concept of live webchat using websockets.
+
+This project should provide the following :
+
+- Websocket server in PHP
+- Chat client using jQuery
+
+Just a quick written POC !
