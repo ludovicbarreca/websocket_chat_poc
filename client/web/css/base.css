@@ -1,0 +1,26 @@
+#container {
+  border:5px solid #42B5FC;
+  width:800px;
+  margin:0 auto;
+  padding:10px;
+}
+
+#chat {
+  padding:5px;
+  border:1px solid black;
+  height: 300px;
+}
+
+#chat p {
+  margin:0;
+}
+
+#text {
+  margin-top: 5px;
+  width: 790px;
+}
+
+#commands {
+  padding: 0;
+  margin: 0;
+}
