@@ -3,6 +3,33 @@
     <head>
         <script src="js/jquery-1.6.4.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/base.css" />
+        <script>
+          $(document).ready(function() {
+            var socket = new WebSocket('ws://192.168.0.1:45788');
+
+            socket.onopen = function() {
+              $('#chat').append('<p class="notice">You\'re connected. Please set your nickname using the /nickname __name__ syntax.</p>');
+              socket.send("new client connected!");
+            }
+
+            socket.onmessage = function(msg) {
+              $('#chat').append('<p>'+msg.data+'</p>');
+            }
+
+            $('#text').keypress(function(event) {
+              if (event.keyCode == '13') {
+                send();
+              }
+            });
+
+            function send() {
+              var text = $('#text').val();
+              socket.send(text)
+
+              $('#text').val('');
+            }
+          });
+        </script>
         <title>WebSockets POC</title>
     </head>
     <body>
@@ -12,8 +39,11 @@
 
                 <div id="chat"></div><!-- #chat -->
                 <input id="text" type="text" />
-                <p id="commands">Available commands : /help, /nick</p>
+                <p id="commands">Available commands : /help, /nickname</p>
             </div><!-- #container -->
         </div>
+        <script>
+        
+        </script>
     </body>
 </html>
